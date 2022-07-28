@@ -4,9 +4,7 @@ This application has the objective to book vehicle to an user, and the user can 
 
 ## Local instalation
 - To run in your computer, clone the repository by the terminal
-```
 https://github.com/GuiLopes29/Happmobi.git
-```
 
 - Go to the folder on you cloned the repository and install the dependencies:
 
@@ -42,6 +40,8 @@ Attention: the port used in application is 3000, they'll run in: http://localhos
 
 #### Login
 - First of all, we reccomend you to login (If you didn't has one, you need to create a new in DB or ask to your responsable)
+
+*Pay attention, if you're creating a new user in db, please encrypt the password with bcrypto to get the security on application, if you want, can use this site: https://www.browserling.com/tools/bcrypt please use **12 rouds** or costumize in app before*
 
 Do one **POST** request with the route: "/user", with body:
 ```

@@ -14,6 +14,7 @@ export class VehicleService {
     private readonly userRepository: Repository<User>
   ) { }
 
+  //RESERVE A VEHICLE OR UNRESERVE A VEHICLE
   public async update(body: any) {
     try {
       //GET THE VEHICLE INFORMED BY THE LICENSE PLATE
@@ -48,8 +49,10 @@ export class VehicleService {
     }
   }
 
+  //SEARCH FOR VEHICLES IN THE DB
   public async findAll() {
     try {
+      //GET ALL THE VEHICLES IN THE DB
       const vehicles = await this.vehicleRepository.find();
       return vehicles;
     } catch (error) {

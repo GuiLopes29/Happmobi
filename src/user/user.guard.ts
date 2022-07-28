@@ -8,6 +8,7 @@ export class UserGuard implements CanActivate {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
+    //GET THE TOKEN FROM THE HEADER *AUTORIZATION* OF THE REQUEST AND CHECK IF IT IS VALID
     const token = context.switchToHttp().getRequest().headers.authorization;
     return this.userService.validateToken(token);
   }

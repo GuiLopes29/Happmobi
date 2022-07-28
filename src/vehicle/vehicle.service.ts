@@ -36,16 +36,22 @@ export class VehicleService {
           } else {
             throw new BadRequestException('You already have a vehicle');
           }
+        } else {
+          throw new BadRequestException('User not found, please specify a valid ID user');
         }
 
         //SAVE THE VEHICLE INFORMED BY THE LICENSE PLATE AND SET THE RESERVE TO AN USER *OR* REMOVE THE RESERVE
         await this.vehicleRepository.save(vehicle);
-        return 'Vehicle reserved ' + vehicle.licensePlate;
+        if (body.reserved) {
+          return 'Vehicle reserved ' + vehicle.licensePlate;
+        } else {
+          return 'Vehicle unreserved ' + vehicle.licensePlate;
+        }
       } else {
         throw new BadRequestException('Vehicle not found');
       }
     } catch (error) {
-      throw new BadRequestException('An error occurred, please try again');
+      throw new BadRequestException(error.message);
     }
   }
 
